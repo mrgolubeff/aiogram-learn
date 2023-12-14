@@ -28,6 +28,14 @@ async def cmd_test1(message: types.Message):
 async def cmd_test2(message: types.Message):
     await message.reply("Test 2")
 
+@dp.message(Command("answer"))
+async def cmd_answer(message: types.Message):
+    await message.answer("Это простой ответ")
+
+@dp.message(Command("reply"))
+async def cmd_reply(message: types.Message):
+    await message.reply("Это реплай")
+
 # Запуск процесса поллинга новых апдейтов
 async def main():
     dp.message.register(cmd_test2, Command("test2"))
