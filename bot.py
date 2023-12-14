@@ -36,6 +36,10 @@ async def cmd_answer(message: types.Message):
 async def cmd_reply(message: types.Message):
     await message.reply("Это реплай")
 
+@dp.message(Command("dice"))
+async def cmd_dice(message: types.Message):
+    await message.answer_dice(emoji="🎲")
+
 # Запуск процесса поллинга новых апдейтов
 async def main():
     dp.message.register(cmd_test2, Command("test2"))
