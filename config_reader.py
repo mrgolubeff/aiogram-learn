@@ -1,9 +1,9 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import SecretSrt
+from pydantic import SecretStr
 
 
 class Settings(BaseSettings):
-    bot_token: SecretSrt
+    bot_token: SecretStr
 
     model_config = SettingsConfigDict(env_file='bot.config', env_file_encoding='utf-8')
 
