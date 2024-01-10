@@ -10,6 +10,8 @@ from aiogram_dialog import Window, Dialog, setup_dialogs, DialogManager, StartMo
 from aiogram_dialog.widgets.kbd import Button
 from aiogram_dialog.widgets.text import Const
 
+from routers import router1, router2
+
 
 # Включаем логирование, чтобы не пропустить важные сообщения
 logging.basicConfig(level=logging.INFO)
@@ -44,6 +46,8 @@ async def cmd_dialog(message: types.Message, dialog_manager: DialogManager):
 # Запуск процесса поллинга новых апдейтов
 async def main():
     dp.include_router(dialog)
+    dp.include_router(router1)
+    dp.include_router(router2)
     setup_dialogs(dp)
     await dp.start_polling(bot)
 
